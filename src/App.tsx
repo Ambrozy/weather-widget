@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './style.css';
+import { useEffect, useState } from 'react';
 
-import { Thunder } from './weather/Thunder';
-import { Rain } from './weather/Rain';
+import Thunder from './assets/Thunder.svg';
+import Rain from './assets/Rain.svg';
 
 import { currentWeather, hourly, dailyForecast } from './data';
 
@@ -16,10 +15,10 @@ export default function App() {
     const daily = localStorage.getItem('daily');
 
     try {
-      const forecastData = JSON.parse(forecast);
+      const forecastData = JSON.parse(forecast ?? '');
       if (forecastData) setForecast(forecastData);
 
-      const dailyData = JSON.parse(daily);
+      const dailyData = JSON.parse(daily ?? '');
       if (dailyData) setDaily(dailyData);
     } finally {
     }
@@ -38,7 +37,8 @@ export default function App() {
 
   useEffect(() => {
     async function getWeather() {
-      const apiKey = '';
+      const locationKey = '';
+      const apiKey = import.meta.env.ACCUWEATHER_API_KEY;
       const apiUrl = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${apiKey}`;
 
       const response = await fetch(apiUrl);
