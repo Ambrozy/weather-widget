@@ -1,14 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './style.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "styled-components";
 
-import App from './App';
+import "./index.css";
 
-const rootElement = document.getElementById('root');
+import App from "./App";
+import { nightTheme } from "./theme/nightTheme.ts";
+
+const rootElement = document.getElementById("root");
 const root = createRoot(rootElement!);
 
 root.render(
   <StrictMode>
-    <App />
-  </StrictMode>
+    <ThemeProvider theme={nightTheme}>
+      <App />
+    </ThemeProvider>
+  </StrictMode>,
 );

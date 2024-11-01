@@ -40,16 +40,23 @@ forecasts. It provides detailed temperature highs and lows, as well as the chanc
     - Navigate the app using a keyboard (left-right scrolling for hourly forecast, up-down scrolling for 10-day
       forecast).
     - Scroll area covers entire content, not just scrollbar.
+    - Using of contrast colors.
 4. **API limitation**.
-    - free plan of accuweather API allow only 50 calls/day
+    - free plan of accuweather API allows
+      - 50 calls per day
+      - request no more than recent 12 hours forecast
+      - request no more than recent 5 days forecast
+    
+      It's enough for the demo, but not for the real application
 
 ### Library and tool selection:
 
-Use the minimum number of required libraries since the project is small in terms of functionality.
+Use the minimum number of required libraries for flexible and easy development.
 
 - **Main stack**:
     - `typescript` to make the project easier to write and maintain.
-    - `css` — no additional preprocessors since there is minimal styling.
+    - Use `styled-components` for styling, which solves several problems: style encapsulation for each component,
+      conditional styling, auto prefixes, and theme switching based on the time of day.
     - Use `react` for rendering optimization and development convenience, as originally in the project. There’s no point
       in changing the main framework because there would be no significant performance gain for such a simple app, and
       maintainability would suffer due to a rarer library being used.
@@ -65,13 +72,16 @@ Use the minimum number of required libraries since the project is small in terms
 
 ### Application architecture:
 
-`Backend` -> `PWA` -> `API Service` + `LocalStorage` -> `State Manager` -> `View`
+`Backend` -> `PWA` -> `API Service` -> `Cache with LocalStorage` -> `State Manager` -> `View`
 
 - **`Backend`** - [AccuWeather API](https://developer.accuweather.com/packages).
 - **`PWA`** - Progressive Web Application, controls offline application state and caches the app when installed on
   mobile devices.
-- **`API Service`** - functions to make requests and initially process responses. We are also working on tracking of API
-  limitation here.
+- **`API Service`** - functions for making requests and initially handling responses. We are also working on limiting
+  API calls and transforming API data into application state. Since the application displays the weather hourly and
+  daily, there is no need to query the weather more often than one hour and day respectively, unless the user changes
+  location. Data transformation is necessary because we do not own the API, and if it changes, it is easier to fix the
+  adapter than to refactor the entire application.
 - **`LocalStorage`** - used to store request caches. Only successfully received data is stored.
 - **`State Manager`** - stores the current application state.
 - **`View`** - displays the current application state.
@@ -93,9 +103,8 @@ Use the minimum number of required libraries since the project is small in terms
     - Split `html` and `css` rendering into independent components to improve readability.
     - Move utils in separate files.
 3. It's better to store `SVG` in `*.svg` files and leave their transformation to `react` components to the bundler,
-   which will simplify future development in case of icon replacement. And we have to replace icons with colored ones.
+   which will simplify future development in case of icon replacement.
 4. Extend `index.html` file with helpful page information like title, favicon, language, etc.
-5. Remove redundant styles.
 
 # Ideas for further project development:
 
@@ -107,7 +116,8 @@ Use the minimum number of required libraries since the project is small in terms
 
 ### UI issues
 
-1. Add an option to select and save a specific location.
-2. Add tabs for weather in different locations.
-3. Display additional data such as pressure, wind speed, humidity, etc.
-4. Display storm and other warnings.
+1. Change icons to colored one and extend number of icons for more weather conditions
+2. Add an option to select and save a specific location.
+3. Add tabs for weather in different locations.
+4. Display additional data such as pressure, wind speed, humidity, etc.
+5. Display storm and other warnings.
