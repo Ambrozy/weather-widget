@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from "react";
 import styled from "styled-components";
 
+import Calendar from "../assets/Calendar.svg";
+
 interface ForecastPanelProps extends PropsWithChildren {
   title: string;
 }
@@ -21,11 +23,16 @@ const ForecastTitleS = styled.div`
   letter-spacing: 0.05em;
   padding-bottom: 8px;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const ForecastPanel = ({ title, children }: ForecastPanelProps) => (
   <ForecastS>
-    <ForecastTitleS>{title}</ForecastTitleS>
+    <ForecastTitleS>
+      <Calendar /> {title}
+    </ForecastTitleS>
     {children}
   </ForecastS>
 );
