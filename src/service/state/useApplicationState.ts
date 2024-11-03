@@ -18,7 +18,7 @@ import { isRequestFailed } from "../utils/isRequestFailed.ts";
  * Default location is Stockholm in case of user doesn't allow geolocation api
  * Previous location saves into localStorage and uses as default in next application open
  */
-export const useStoreState = () => {
+export const useApplicationState = () => {
   const [forecast, dispatch] = useState<RequestState>(initialState);
   const fetchForecast = useCallback(
     async (geoPosition: GeoPosition, signal?: AbortSignal) => {

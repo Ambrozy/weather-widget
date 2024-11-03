@@ -3,11 +3,11 @@ import { AppWelcomeScreen } from "./components/AppWelcomeScreen.tsx";
 import { AppWrapper } from "./components/AppWrapper.tsx";
 import { DailyForecastPanel } from "./components/DailyForecastPanel.tsx";
 import { HourlyForecastPanel } from "./components/HourlyForecastPanel.tsx";
-import { useStoreState } from "./service/state/useStoreState.ts";
+import { useApplicationState } from "./service/state/useApplicationState.ts";
 
 export default function App() {
   const { isError, isLoading, hourlyForecast, dailyForecast, geoPosition } =
-    useStoreState();
+    useApplicationState();
 
   // first render there is no fetched data
   if (!hourlyForecast || !dailyForecast) {
