@@ -3,16 +3,31 @@
 The weather app displays the current temperature and conditions for user location, along with hourly and 10-day
 forecasts. It provides detailed temperature highs and lows, as well as the chance of precipitation for each day.
 
-1. [Solution design](#solution-design)
+1. [About repository](#about-repository)
+2. [Solution design](#solution-design)
     1. [Functionality](#functionality)
     2. [Constraints](#constraints)
     3. [Library and tool selection](#library-and-tool-selection)
     4. [Application architecture](#application-architecture)
     5. [CI/CD](#cicd)
-2. [Code refactoring](#code-refactoring)
-3. [Ideas for further project development](#ideas-for-further-project-development)
+3. [Code refactoring](#code-refactoring)
+4. [Ideas for further project development](#ideas-for-further-project-development)
     1. [Technical issues](#technical-issues)
     2. [UI issues](#UI-issues)
+
+# About repository
+
+To start using this repository add `.env.local` file and specify `VITE_ACCUWEATHER_API_KEY` there.
+
+`bun run dev` - run dev server run
+
+`bun run build` - build project and save result into `dist` directory
+
+`bun run preview` - serve website from `dist` directory
+
+`bun run lint` - run linting of repository
+
+`bun run test` - run unit tests
 
 # Solution design
 
@@ -43,10 +58,10 @@ forecasts. It provides detailed temperature highs and lows, as well as the chanc
     - Using of contrast colors.
 4. **API limitation**.
     - free plan of accuweather API allows
-      - 50 calls per day
-      - request no more than recent 12 hours forecast
-      - request no more than recent 5 days forecast
-    
+        - 50 calls per day
+        - request no more than recent 12 hours forecast
+        - request no more than recent 5 days forecast
+
       It's enough for the demo, but not for the real application
 
 ### Library and tool selection:
@@ -107,6 +122,9 @@ Use the minimum number of required libraries for flexible and easy development.
 3. It's better to store `SVG` in `*.svg` files and leave their transformation to `react` components to the bundler,
    which will simplify future development in case of icon replacement.
 4. Extend `index.html` file with helpful page information like title, favicon, language, etc.
+5. If we want to switch the background depending on the time of day, simply changing the background is not sufficient.
+   The text and other elements become difficult to read. Therefore, it is necessary to adjust them and request the
+   designer to create different screen versions. A good solution here would be to use themes.
 
 # Ideas for further project development:
 

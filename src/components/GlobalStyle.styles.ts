@@ -14,7 +14,7 @@ export const GlobalStyleS = createGlobalStyle`
 
   body {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     /* Internet Explorer and Edge Legacy scrollbar */
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }

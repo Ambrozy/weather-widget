@@ -16,6 +16,7 @@ interface HourlyForecastPanelItemProps
 const HourlyForecastItemS = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 45px;
   min-width: 45px;
   text-align: center;

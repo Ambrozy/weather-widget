@@ -9,8 +9,8 @@ interface ForecastPanelProps extends PropsWithChildren {
 
 const ForecastS = styled.div`
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  background-color: ${(props) => props.theme.panel.background};
+  border: 1px solid ${(props) => props.theme.panel.background};
   padding: 15px 15px;
 
   & + & {
@@ -19,7 +19,6 @@ const ForecastS = styled.div`
 `;
 const ForecastTitleS = styled.div`
   border-bottom: ${(props) => props.theme.divider};
-  font-size: 15px;
   letter-spacing: 0.05em;
   padding-bottom: 8px;
   text-transform: uppercase;

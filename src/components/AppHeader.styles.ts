@@ -6,17 +6,18 @@ export const HeaderS = styled.div`
   margin: 50px 0 40px;
 `;
 export const LocationS = styled.div`
-  font-size: 37px;
+  font-size: 3.7rem;
   vertical-align: middle;
 `;
 export const TemperatureS = styled.div`
-  font-size: 102px;
-  line-height: 102px;
-  font-weight: 100;
+  font-size: 10.2rem;
+  line-height: 1;
+  font-weight: 200;
 `;
 export const ConditionsS = styled.div`
-  font-size: 24px;
+  font-size: 2.4rem;
 `;
+
 export const IconContainerS = styled.div`
   display: inline-block;
   margin-left: 12px;

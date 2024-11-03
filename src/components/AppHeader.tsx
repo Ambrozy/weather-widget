@@ -46,12 +46,11 @@ export const AppHeader = memo(
           </IconContainerS>
         )}
       </LocationS>
-      <TemperatureS>{formatTemperature(temperature)}</TemperatureS>
       <ConditionsS>
-        {conditions}
-        <br />
-        H:{formatTemperature(maxTemperature)} L:
-        {formatTemperature(minTemperature)}
+        <TemperatureS>{formatTemperature(temperature)}</TemperatureS>
+        <div>{conditions}</div>
+        H:{formatTemperature(maxTemperature)}
+        L: {formatTemperature(minTemperature)}
       </ConditionsS>
     </HeaderS>
   ),
