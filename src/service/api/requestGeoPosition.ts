@@ -1,5 +1,6 @@
 import {
   GEO_POSITION_REQUEST_LOCAL_STORAGE_KEY,
+  GEO_POSITION_URL,
   UNKNOWN_LOCATION_TEXT,
 } from "../constants";
 
@@ -16,12 +17,12 @@ export const requestGeoPosition = async (
   cacheRequestDecorator(
     () =>
       request<GeoPosition, GeoPositionResponse>(
-        `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?q=${locationQuery}&language=en-us`,
+        `${GEO_POSITION_URL}?q=${locationQuery}&language=en-us`,
         {
           signal,
           transformResponse: (data) => ({
             locationKey: data.Key,
-            locationName: data.LocalizedName ?? UNKNOWN_LOCATION_TEXT,
+            locationName: data.LocalizedName || UNKNOWN_LOCATION_TEXT,
           }),
         },
       ),

@@ -1,4 +1,7 @@
-import { DAILY_REQUEST_LOCAL_STORAGE_KEY } from "../constants";
+import {
+  DAILY_FORECAST_URL,
+  DAILY_REQUEST_LOCAL_STORAGE_KEY,
+} from "../constants";
 
 import { cacheRequestDecorator } from "./cache/cacheRequestDecorator.ts";
 import { request } from "./request.ts";
@@ -13,7 +16,7 @@ export const requestDailyForecast = async (
   cacheRequestDecorator(
     () =>
       request<DailyForecast, DailyForecastResponse>(
-        `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?language=en-us&details=true&metric=true`,
+        `${DAILY_FORECAST_URL}${locationKey}?language=en-us&details=true&metric=true`,
         {
           signal,
           transformResponse: (data) =>

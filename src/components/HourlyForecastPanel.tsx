@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled from "styled-components";
 
 import type { HourlyForecast } from "../service/api/types/data.types.ts";
@@ -17,20 +18,20 @@ const ListS = styled.div`
   gap: 10px;
 `;
 
-export const HourlyForecastPanel = ({
-  hourlyForecast,
-}: HourlyForecastProps) => (
-  <ForecastPanel title="Hourly Forecast">
-    <ListS>
-      {hourlyForecast.map(({ dateTime, temperature, iconIndex }, index) => (
-        <HourlyForecastPanelItem
-          isNow={index === 0}
-          dateTime={dateTime}
-          temperature={temperature}
-          iconIndex={iconIndex}
-          key={dateTime}
-        />
-      ))}
-    </ListS>
-  </ForecastPanel>
+export const HourlyForecastPanel = memo(
+  ({ hourlyForecast }: HourlyForecastProps) => (
+    <ForecastPanel title="Hourly Forecast">
+      <ListS>
+        {hourlyForecast.map(({ dateTime, temperature, iconIndex }, index) => (
+          <HourlyForecastPanelItem
+            isNow={index === 0}
+            dateTime={dateTime}
+            temperature={temperature}
+            iconIndex={iconIndex}
+            key={dateTime}
+          />
+        ))}
+      </ListS>
+    </ForecastPanel>
+  ),
 );

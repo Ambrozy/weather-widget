@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import { memo, type PropsWithChildren } from "react";
 import styled from "styled-components";
 
 import Calendar from "../assets/Calendar.svg";
@@ -28,11 +28,11 @@ const ForecastTitleS = styled.div`
   gap: 10px;
 `;
 
-export const ForecastPanel = ({ title, children }: ForecastPanelProps) => (
+export const ForecastPanel = memo(({ title, children }: ForecastPanelProps) => (
   <ForecastS>
     <ForecastTitleS>
       <Calendar /> {title}
     </ForecastTitleS>
     {children}
   </ForecastS>
-);
+));

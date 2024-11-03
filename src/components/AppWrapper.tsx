@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react";
+import { memo, type PropsWithChildren } from "react";
 import styled from "styled-components";
 
 const WrapperS = styled.div`
@@ -15,8 +15,8 @@ const ContentS = styled.div`
   padding: 10px;
 `;
 
-export const AppWrapper = ({ children }: PropsWithChildren) => (
+export const AppWrapper = memo(({ children }: PropsWithChildren) => (
   <WrapperS>
     <ContentS>{children}</ContentS>
   </WrapperS>
-);
+));

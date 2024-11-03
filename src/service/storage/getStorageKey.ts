@@ -7,7 +7,7 @@ export function getStorageKey<T>(key: string, defaultValue?: T): T | undefined {
     const cache = localStorage.getItem(key);
 
     return cache ? JSON.parse(cache) : defaultValue;
-  } catch (e) {
+  } catch {
     return defaultValue;
   }
 }

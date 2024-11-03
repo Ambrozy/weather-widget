@@ -71,7 +71,7 @@ export const useStoreState = () => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetchForecast(forecast.geoPosition, signal);
+    fetchForecast(initialState.geoPosition, signal);
 
     // use `watchPosition` with 1 hour timeout in case of user can hold application opened a long time
     navigator.geolocation.getCurrentPosition(async (pos) => {
@@ -82,7 +82,7 @@ export const useStoreState = () => {
     });
 
     return () => controller.abort();
-  }, [fetchForecast]);
+  }, [fetchForecast, fetchForecastByLocationQuery]);
 
   return forecast;
 };

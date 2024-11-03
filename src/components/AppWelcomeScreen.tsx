@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import Sunny from "../assets/Sunny.svg";
@@ -33,7 +34,7 @@ const AppWelcomeScreenS = styled.div<{ $isError: boolean }>`
   }
 `;
 
-export const AppWelcomeScreen = ({ isError }: AppWelcomeScreenProps) => (
+export const AppWelcomeScreen = memo(({ isError }: AppWelcomeScreenProps) => (
   <AppWelcomeScreenS $isError={isError}>
     <Sunny />
     {isError && (
@@ -42,4 +43,4 @@ export const AppWelcomeScreen = ({ isError }: AppWelcomeScreenProps) => (
       </div>
     )}
   </AppWelcomeScreenS>
-);
+));

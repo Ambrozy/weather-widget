@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styled from "styled-components";
 
 import { DailyForecastItem } from "../service/api/types/data.types.ts";
@@ -53,42 +54,44 @@ const DailyForecastProbabilityS = styled.div`
   color: #81cffa;
 `;
 
-export const DailyForecastPanelItem = ({
-  dateTime,
-  iconIndex,
-  temperature,
-  totalMinTemperature,
-  totalMaxTemperature,
-  minTemperature,
-  maxTemperature,
-  hasPrecipitation,
-  precipitationProbability,
-  isToday,
-}: DailyForecastPanelItemProps) => (
-  <DailyForecastRowS>
-    <DailyForecastTimeS>
-      {isToday ? "Today" : formatDay(dateTime)}
-    </DailyForecastTimeS>
+export const DailyForecastPanelItem = memo(
+  ({
+    dateTime,
+    iconIndex,
+    temperature,
+    totalMinTemperature,
+    totalMaxTemperature,
+    minTemperature,
+    maxTemperature,
+    hasPrecipitation,
+    precipitationProbability,
+    isToday,
+  }: DailyForecastPanelItemProps) => (
+    <DailyForecastRowS>
+      <DailyForecastTimeS>
+        {isToday ? "Today" : formatDay(dateTime)}
+      </DailyForecastTimeS>
 
-    {hasPrecipitation ? (
-      <DailyForecastConditionsWithPrecipitationS>
-        <AccuWeatherIcon iconIndex={iconIndex} />
-        <DailyForecastProbabilityS>
-          {precipitationProbability}%
-        </DailyForecastProbabilityS>
-      </DailyForecastConditionsWithPrecipitationS>
-    ) : (
-      <DailyForecastConditionsS>
-        <AccuWeatherIcon iconIndex={iconIndex} />
-      </DailyForecastConditionsS>
-    )}
+      {hasPrecipitation ? (
+        <DailyForecastConditionsWithPrecipitationS>
+          <AccuWeatherIcon iconIndex={iconIndex} />
+          <DailyForecastProbabilityS>
+            {precipitationProbability}%
+          </DailyForecastProbabilityS>
+        </DailyForecastConditionsWithPrecipitationS>
+      ) : (
+        <DailyForecastConditionsS>
+          <AccuWeatherIcon iconIndex={iconIndex} />
+        </DailyForecastConditionsS>
+      )}
 
-    <DailyRange
-      temperature={temperature}
-      totalMinTemperature={totalMinTemperature}
-      totalMaxTemperature={totalMaxTemperature}
-      minTemperature={minTemperature}
-      maxTemperature={maxTemperature}
-    />
-  </DailyForecastRowS>
+      <DailyRange
+        temperature={temperature}
+        totalMinTemperature={totalMinTemperature}
+        totalMaxTemperature={totalMaxTemperature}
+        minTemperature={minTemperature}
+        maxTemperature={maxTemperature}
+      />
+    </DailyForecastRowS>
+  ),
 );

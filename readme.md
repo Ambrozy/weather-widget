@@ -65,7 +65,9 @@ Use the minimum number of required libraries for flexible and easy development.
 
 - Use the fastest and easy to use tools for faster development:
     - `vite` - build tool.
+    - `vitest` - test runner.
     - `bun` - package manager and unit-test runner.
+- use `msw` as mocking API requests for testing.
 - Use `eslint` and `prettier` for code style enforcement.
 - Use `vite-plugin-pwa` for easier PWA (Progressive Web Application) configuration.
 - Use `vite-bundle-visualizer` for analyzing the build.

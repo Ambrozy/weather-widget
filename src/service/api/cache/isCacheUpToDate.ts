@@ -10,8 +10,8 @@ export const isCacheUpToDate = <T>(
   const requested = new Date(cache.requested);
 
   return (
-    ((cachePeriod === "Daily" && now.getHours() - requested.getHours() < 1) ||
-      (cachePeriod === "Hourly" && now.getDate() - requested.getDate() < 1)) &&
+    ((cachePeriod === "Daily" && now.getDate() === requested.getDate()) ||
+      (cachePeriod === "Hourly" && now.getHours() === requested.getHours())) &&
     locationKey === cache.locationKey
   );
 };

@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import Warning from "../assets/Warning.svg";
 
 import {
@@ -20,35 +22,37 @@ interface AppHeaderProps {
   maxTemperature: number;
 }
 
-export const AppHeader = ({
-  isError,
-  isLoading,
-  locationName,
-  temperature,
-  conditions,
-  minTemperature,
-  maxTemperature,
-}: AppHeaderProps) => (
-  <HeaderS>
-    <LocationS>
-      {locationName}
-      {isError && (
-        <IconContainerS>
-          <Warning />
-        </IconContainerS>
-      )}
-      {isLoading && (
-        <IconContainerS>
-          <LoaderS />
-        </IconContainerS>
-      )}
-    </LocationS>
-    <TemperatureS>{formatTemperature(temperature)}</TemperatureS>
-    <ConditionsS>
-      {conditions}
-      <br />
-      H:{formatTemperature(maxTemperature)} L:
-      {formatTemperature(minTemperature)}
-    </ConditionsS>
-  </HeaderS>
+export const AppHeader = memo(
+  ({
+    isError,
+    isLoading,
+    locationName,
+    temperature,
+    conditions,
+    minTemperature,
+    maxTemperature,
+  }: AppHeaderProps) => (
+    <HeaderS>
+      <LocationS>
+        {locationName}
+        {isError && (
+          <IconContainerS>
+            <Warning />
+          </IconContainerS>
+        )}
+        {isLoading && (
+          <IconContainerS>
+            <LoaderS />
+          </IconContainerS>
+        )}
+      </LocationS>
+      <TemperatureS>{formatTemperature(temperature)}</TemperatureS>
+      <ConditionsS>
+        {conditions}
+        <br />
+        H:{formatTemperature(maxTemperature)} L:
+        {formatTemperature(minTemperature)}
+      </ConditionsS>
+    </HeaderS>
+  ),
 );

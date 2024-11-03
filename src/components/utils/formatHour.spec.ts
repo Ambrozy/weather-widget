@@ -1,3 +1,5 @@
+import { it, describe, expect } from "vitest";
+
 import { formatHour } from "./formatHour.ts";
 
 describe("formatHour", () => {

@@ -1,4 +1,7 @@
-import { HOURLY_REQUEST_LOCAL_STORAGE_KEY } from "../constants";
+import {
+  HOURLY_FORECAST_URL,
+  HOURLY_REQUEST_LOCAL_STORAGE_KEY,
+} from "../constants";
 
 import { cacheRequestDecorator } from "./cache/cacheRequestDecorator.ts";
 import { request } from "./request.ts";
@@ -13,7 +16,7 @@ export const requestHourlyForecast = async (
   cacheRequestDecorator(
     () =>
       request<HourlyForecast, HourlyForecastResponse>(
-        `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}?language=en-us&metric=true`,
+        `${HOURLY_FORECAST_URL}${locationKey}?language=en-us&metric=true`,
         {
           signal,
           transformResponse: (data) =>
