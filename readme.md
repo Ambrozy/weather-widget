@@ -29,6 +29,8 @@ To start using this repository add `.env.local` file and specify `VITE_ACCUWEATH
 
 `bun run test` - run unit tests
 
+`generate-pwa-assets` - generate PWA assets
+
 # Solution design
 
 ### Functionality:
@@ -63,6 +65,9 @@ To start using this repository add `.env.local` file and specify `VITE_ACCUWEATH
         - request no more than recent 5 days forecast
 
       It's enough for the demo, but not for the real application
+5. **Browser support**.
+   - 100% support for the latest version of Chrome, Firefox, Safari, and Edge.
+   - 100% support for any desktop and phone screen dimensions; minimum width: 320px, maximum width (4K): 3840px.
 
 ### Library and tool selection:
 
@@ -85,6 +90,7 @@ Use the minimum number of required libraries for flexible and easy development.
 - use `msw` as mocking API requests for testing.
 - Use `eslint` and `prettier` for code style enforcement.
 - Use `vite-plugin-pwa` for easier PWA (Progressive Web Application) configuration.
+- Use `generate-pwa-assets` for generating PWA assets from svg icon.
 - Use `vite-bundle-visualizer` for analyzing the build.
 
 ### Application architecture:
@@ -141,3 +147,4 @@ Use the minimum number of required libraries for flexible and easy development.
 3. Add tabs for weather in different locations.
 4. Display additional data such as pressure, wind speed, humidity, etc.
 5. Display storm and other warnings.
+6. Support tiny screen devices as watches.
