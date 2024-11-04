@@ -3,6 +3,8 @@
 The weather app displays the current temperature and conditions for user location, along with hourly and 10-day
 forecasts. It provides detailed temperature highs and lows, as well as the chance of precipitation for each day.
 
+See deployed version here [Open Weather App](https://ambrozy.github.io/weather-widget/)
+
 1. [About repository](#about-repository)
 2. [Solution design](#solution-design)
     1. [Functionality](#functionality)
