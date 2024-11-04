@@ -12,6 +12,7 @@ See deployed version here [Open Weather App](https://ambrozy.github.io/weather-w
     3. [Library and tool selection](#library-and-tool-selection)
     4. [Application architecture](#application-architecture)
     5. [CI/CD](#cicd)
+    6. [Security notes](#security-notes)
 3. [Code refactoring](#code-refactoring)
 4. [Ideas for further project development](#ideas-for-further-project-development)
     1. [Technical issues](#technical-issues)
@@ -69,8 +70,8 @@ Install `bun` package manager globally. [Bun docs](https://bun.sh/)
 
       It's enough for the demo, but not for the real application
 5. **Browser support**.
-   - 100% support for the latest version of Chrome, Firefox, Safari, and Edge.
-   - 100% support for any desktop and phone screen dimensions; minimum width: 320px, maximum width (4K): 3840px.
+    - 100% support for the latest version of Chrome, Firefox, Safari, and Edge.
+    - 100% support for any desktop and phone screen dimensions; minimum width: 320px, maximum width (4K): 3840px.
 
 ### Library and tool selection:
 
@@ -117,6 +118,14 @@ Use the minimum number of required libraries for flexible and easy development.
 - **CI**: Lint and test on master branch changes. This is enough for development by one developer.
 - **CD**: Use `GitHub pages` to deploy our weather app. On master branch changes, after a successful CI check, build and
   deploy the app.
+
+### Security notes:
+
+We are using a weather API key. If this key is exposed, anyone can use it, which is why it must be kept confidential. To
+achieve this, we should store the API key in the repository secrets, and for local development, it should be kept in a
+`.env.local` file, which is stored only on the development machine. To ensure that the API key does not end up in the
+final build, a proxy backend should be implemented, which would add the API key and request the third-party API. In this
+demo application, a free API key is used, and no proxy backend has been implemented.
 
 # Code refactoring
 

@@ -18,8 +18,8 @@ export const DEFAULT_GEO_POSITION: GeoPosition = {
 };
 
 export const HOURLY_FORECAST_URL =
-  "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/";
+  "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/";
 export const DAILY_FORECAST_URL =
-  "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 export const GEO_POSITION_URL =
-  "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
+  "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
