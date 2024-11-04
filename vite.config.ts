@@ -18,11 +18,20 @@ export default defineConfig({
       include: "**/*.svg",
     }),
     VitePWA({
+      // cache all the imports to be available offline
+      workbox: {
+        globPatterns: ["**/*"],
+      },
+      // cache all the static assets in the public folder to be available offline
+      includeAssets: ["**/*"],
       manifest: {
-        name: 'Weather App',
-        short_name: 'Weather',
-        description: 'Hourly and daily forecast',
-        theme_color: '#000000',
+        name: "Weather App",
+        short_name: "Weather",
+        description: "Hourly and daily forecast",
+        theme_color: "#000000",
+        display: "standalone",
+        scope: "/",
+        start_url: "/",
         icons: [
           {
             src: "pwa-64x64.png",

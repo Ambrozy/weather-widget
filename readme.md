@@ -18,6 +18,7 @@ forecasts. It provides detailed temperature highs and lows, as well as the chanc
 # About repository
 
 To start using this repository add `.env.local` file and specify `VITE_ACCUWEATHER_API_KEY` there.
+Install `bun` package manager globally. [Bun docs](https://bun.sh/)
 
 `bun run dev` - run dev server run
 
