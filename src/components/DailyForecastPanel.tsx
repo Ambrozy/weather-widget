@@ -6,13 +6,11 @@ import { ForecastPanel } from "./ForecastPanel.tsx";
 import { DailyForecastPanelItem } from "./DailyForecastPanelItem.tsx";
 
 interface DailyForecastPanelProps {
-  /** Current temperature */
-  temperature: number;
   dailyForecast: DailyForecast;
 }
 
 export const DailyForecastPanel = memo(
-  ({ temperature, dailyForecast }: DailyForecastPanelProps) => {
+  ({ dailyForecast }: DailyForecastPanelProps) => {
     const totalMinTemperature = Math.min(
       ...dailyForecast.map((item) => item.minTemperature),
     );
@@ -44,7 +42,7 @@ export const DailyForecastPanel = memo(
                 isToday={index === 0}
                 dateTime={dateTime}
                 iconIndex={iconIndex}
-                temperature={index === 0 ? temperature : undefined}
+                hasAverageTemperature={index === 0}
                 totalMinTemperature={totalMinTemperature}
                 totalMaxTemperature={totalMaxTemperature}
                 minTemperature={minTemperature}

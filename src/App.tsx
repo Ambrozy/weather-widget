@@ -34,10 +34,7 @@ export default function App() {
         maxTemperature={currentDailyForecast.maxTemperature}
       />
       <HourlyForecastPanel hourlyForecast={hourlyForecast} />
-      <DailyForecastPanel
-        temperature={currentHourlyForecast.temperature}
-        dailyForecast={dailyForecast}
-      />
+      <DailyForecastPanel dailyForecast={dailyForecast} />
     </AppWrapper>
   );
 }

@@ -16,8 +16,8 @@ import { formatDay } from "./utils/formatDay.ts";
 interface DailyForecastPanelItemProps extends DailyForecastItem {
   /** Display Today instead of hour */
   isToday: boolean;
-  /** Current marker */
-  temperature?: number;
+  /** If `true` show average temperature marker */
+  hasAverageTemperature?: boolean;
   /** 10-days minimum temperature */
   totalMinTemperature: number;
   /** 10-days maximum temperature */
@@ -28,7 +28,7 @@ export const DailyForecastPanelItem = memo(
   ({
     dateTime,
     iconIndex,
-    temperature,
+    hasAverageTemperature,
     totalMinTemperature,
     totalMaxTemperature,
     minTemperature,
@@ -56,7 +56,11 @@ export const DailyForecastPanelItem = memo(
       )}
 
       <DailyRange
-        temperature={temperature}
+        temperature={
+          hasAverageTemperature
+            ? (minTemperature + maxTemperature) / 2
+            : undefined
+        }
         totalMinTemperature={totalMinTemperature}
         totalMaxTemperature={totalMaxTemperature}
         minTemperature={minTemperature}
