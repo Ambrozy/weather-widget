@@ -30,7 +30,7 @@ const ForecastTitleS = styled.div`
 export const ForecastPanel = memo(({ title, children }: ForecastPanelProps) => (
   <ForecastS>
     <ForecastTitleS>
-      <Calendar /> {title}
+      <Calendar aria-hidden="true" /> {title}
     </ForecastTitleS>
     {children}
   </ForecastS>

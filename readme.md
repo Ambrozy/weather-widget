@@ -58,8 +58,7 @@ Install `bun` package manager globally. [Bun docs](https://bun.sh/)
       current state.
 3. **Accessibility**.
     - Support screen readers, markup with ARIA labels.
-    - Navigate the app using a keyboard (left-right scrolling for hourly forecast, up-down scrolling for 10-day
-      forecast).
+    - Navigate the app using a keyboard (up-down - vertical scrolling).
     - Scroll area covers entire content, not just scrollbar.
     - Using of contrast colors.
 4. **API limitation**.
@@ -143,6 +142,8 @@ demo application, a free API key is used, and no proxy backend has been implemen
 5. If we want to switch the background depending on the time of day, simply changing the background is not sufficient.
    The text and other elements become difficult to read. Therefore, it is necessary to adjust them and request the
    designer to create different screen versions. A good solution here would be to use themes.
+6. [accessibility.md](docs%2Faccessibility.md)
+7. [performance.md](docs%2Fperformance.md)
 
 # Ideas for further project development:
 

@@ -13,7 +13,7 @@ export default defineConfig({
         exportType: "default",
         ref: true,
         svgo: false,
-        titleProp: true,
+        titleProp: true, // a11y for svg, add `title` tag content by setting component `title` attribute
       },
       include: "**/*.svg",
     }),

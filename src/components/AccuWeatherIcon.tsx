@@ -19,14 +19,14 @@ export const AccuWeatherIcon = memo(
       case 1:
       case 2:
       case 3:
-        return <Sunny />;
+        return <Sunny role="img" title="Sunny" />;
       case 4:
       case 5:
       case 6:
       case 20:
       case 21:
       case 23:
-        return <Cloudy />;
+        return <Cloudy role="img" title="Cloudy" />;
       case 7:
       case 8:
       case 11:
@@ -41,28 +41,28 @@ export const AccuWeatherIcon = memo(
       case 36:
       case 37:
       case 38:
-        return <NightCloudy />;
+        return <NightCloudy role="img" title="Night Cloudy" />;
       case 12:
       case 13:
       case 14:
-        return <LightRain />;
+        return <LightRain role="img" title="Light Rain" />;
       case 15:
       case 16:
       case 17:
-        return <Thunder />;
+        return <Thunder role="img" title="Thunder" />;
       case 18:
       case 22:
       case 25:
       case 26:
       case 29:
-        return <Rain />;
+        return <Rain role="img" title="Rain" />;
       case 39:
       case 40:
       case 41:
       case 42:
       case 43:
       case 44:
-        return <HeavyRain />;
+        return <HeavyRain role="img" title="Heavy Rain" />;
       default:
         return null;
     }

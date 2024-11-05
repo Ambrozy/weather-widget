@@ -37,12 +37,12 @@ export const AppHeader = memo(
         {locationName}
         {isError && (
           <IconContainerS>
-            <Warning />
+            <Warning role="img" title="The weather forecast is out of date" />
           </IconContainerS>
         )}
         {isLoading && (
           <IconContainerS>
-            <LoaderS />
+            <LoaderS role="img" title="Loading weather forecast" />
           </IconContainerS>
         )}
       </LocationS>

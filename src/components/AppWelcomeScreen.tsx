@@ -36,7 +36,7 @@ const AppWelcomeScreenS = styled.div<{ $isError: boolean }>`
 
 export const AppWelcomeScreen = memo(({ isError }: AppWelcomeScreenProps) => (
   <AppWelcomeScreenS $isError={isError}>
-    <Sunny />
+    <Sunny aria-hidden={isError} role="img" title="Loading weather forecast" />
     {isError && (
       <div>
         Failed to load data, <br /> try again later

@@ -36,36 +36,39 @@ export const DailyForecastPanelItem = memo(
     hasPrecipitation,
     precipitationProbability,
     isToday,
-  }: DailyForecastPanelItemProps) => (
-    <DailyForecastRowS>
-      <DailyForecastTimeS>
-        {isToday ? "Today" : formatDay(dateTime)}
-      </DailyForecastTimeS>
+  }: DailyForecastPanelItemProps) => {
+    const dayTitle = isToday ? "Today" : formatDay(dateTime);
+    const dayText = isToday ? "Today" : formatDay(dateTime)?.slice(0, 3);
 
-      {hasPrecipitation ? (
-        <DailyForecastConditionsWithPrecipitationS>
-          <AccuWeatherIcon iconIndex={iconIndex} />
-          <DailyForecastProbabilityS>
-            {precipitationProbability}%
-          </DailyForecastProbabilityS>
-        </DailyForecastConditionsWithPrecipitationS>
-      ) : (
-        <DailyForecastConditionsS>
-          <AccuWeatherIcon iconIndex={iconIndex} />
-        </DailyForecastConditionsS>
-      )}
+    return (
+      <DailyForecastRowS>
+        <DailyForecastTimeS title={dayTitle}>{dayText}</DailyForecastTimeS>
 
-      <DailyRange
-        temperature={
-          hasAverageTemperature
-            ? (minTemperature + maxTemperature) / 2
-            : undefined
-        }
-        totalMinTemperature={totalMinTemperature}
-        totalMaxTemperature={totalMaxTemperature}
-        minTemperature={minTemperature}
-        maxTemperature={maxTemperature}
-      />
-    </DailyForecastRowS>
-  ),
+        {hasPrecipitation ? (
+          <DailyForecastConditionsWithPrecipitationS>
+            <AccuWeatherIcon iconIndex={iconIndex} />
+            <DailyForecastProbabilityS>
+              {precipitationProbability}%
+            </DailyForecastProbabilityS>
+          </DailyForecastConditionsWithPrecipitationS>
+        ) : (
+          <DailyForecastConditionsS>
+            <AccuWeatherIcon iconIndex={iconIndex} />
+          </DailyForecastConditionsS>
+        )}
+
+        <DailyRange
+          temperature={
+            hasAverageTemperature
+              ? (minTemperature + maxTemperature) / 2
+              : undefined
+          }
+          totalMinTemperature={totalMinTemperature}
+          totalMaxTemperature={totalMaxTemperature}
+          minTemperature={minTemperature}
+          maxTemperature={maxTemperature}
+        />
+      </DailyForecastRowS>
+    );
+  },
 );

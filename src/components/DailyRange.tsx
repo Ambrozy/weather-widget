@@ -44,14 +44,14 @@ export const DailyRange = memo(
 
     return (
       <DailyRangeS>
-        <DailyMinTemperatureS>
+        <DailyMinTemperatureS title="Minimum Temperature">
           {formatTemperature(minTemperature)}
         </DailyMinTemperatureS>
         <RangeS>
           <RangeMeterS $left={rangeLeft} $right={rangeRight} />
           {temperature !== undefined && <CurrentMarkS $left={markerLeft} />}
         </RangeS>
-        <DailyMaxTemperatureS>
+        <DailyMaxTemperatureS title="Maximum Temperature">
           {formatTemperature(maxTemperature)}
         </DailyMaxTemperatureS>
       </DailyRangeS>
